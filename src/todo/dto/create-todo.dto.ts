@@ -1,5 +1,5 @@
 // create-todo.dto.ts
-import { IsNotEmpty, IsOptional, IsBoolean, IsString, IsInt } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsBoolean, IsString } from 'class-validator';
 
 export class CreateTodoDto {
     @IsNotEmpty()
@@ -13,8 +13,4 @@ export class CreateTodoDto {
     @IsOptional()
     @IsString()
     color?: string;
-
-    @IsNotEmpty()
-    @IsInt()
-    userId: number;  // Relaciona o todo com o usuário
 }
