@@ -7,37 +7,34 @@ import { UpdateTodoDto } from './dto/update-todo.dto';
 export class TodoService {
     constructor(private prisma: PrismaService) { }
 
-    create(data: CreateTodoDto, userId: number) {
+    create(data: CreateTodoDto) {
         return this.prisma.todo.create({
             data: {
                 ...data,
-                userId,
             },
         });
     }
 
-    findAll(userId: number) {
-        return this.prisma.todo.findMany({
-            where: { userId },
-        });
+    findAll() {
+        return this.prisma.todo.findMany();
     }
 
-    findOne(id: number, userId: number) {
+    findOne(id: number) {
         return this.prisma.todo.findFirst({
-            where: { id, userId },
+            where: { id },
         });
     }
 
-    update(id: number, data: UpdateTodoDto, userId: number) {
-        return this.prisma.todo.updateMany({
-            where: { id, userId },
+    update(id: number, data: UpdateTodoDto) {
+        return this.prisma.todo.update({
+            where: { id },
             data,
         });
     }
 
-    remove(id: number, userId: number) {
+    remove(id: number) {
         return this.prisma.todo.deleteMany({
-            where: { id, userId },
+            where: { id },
         });
     }
 }
