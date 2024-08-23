@@ -10,6 +10,7 @@ generator client {
 model Todo {
   id         Int     @id @default(autoincrement())
   title      String
+  content    String  @default("Texto")
   isFavorite Boolean @default(false)
   color      String?
 }
