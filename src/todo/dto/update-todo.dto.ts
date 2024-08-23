@@ -7,6 +7,10 @@ export class UpdateTodoDto {
     title?: string;
 
     @IsOptional()
+    @IsString()
+    content: string;
+
+    @IsOptional()
     @IsBoolean()
     isFavorite?: boolean;
 

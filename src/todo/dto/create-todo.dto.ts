@@ -6,6 +6,10 @@ export class CreateTodoDto {
     @IsString()
     title: string;
 
+    @IsNotEmpty()
+    @IsString()
+    content: string;
+
     @IsOptional()
     @IsBoolean()
     isFavorite?: boolean;
